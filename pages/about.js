@@ -6,10 +6,10 @@ import React from "react";
 // 2. resuable components
 // 3. presentional components, partially right, we can use HOOKS and specify state
 
-// const About = () => {
-//   const message = "hello world";
-//   return <h1>Hello About Page - {message}</h1>;
-// };
+const About = () => {
+  const message = "hello world";
+  return <h1>Hello About Page - {message}</h1>;
+};
 
 // // const About = () => {
 // //   const message = "hello world";
@@ -25,10 +25,10 @@ import React from "react";
 // //   return <h1>Hello About Page</h1>;
 // // }
 
-class About extends React.Component {
-  render() {
-    return <h1>Hello I am class component</h1>;
-  }
-}
+// class About extends React.Component {
+//   render() {
+//     return <h1>Hello I am class component</h1>;
+//   }
+// }
 
 export default About;

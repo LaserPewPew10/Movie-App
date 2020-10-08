@@ -6,6 +6,7 @@ import MovieList from "../components/movieList";
 import { getMovies } from "../actions";
 
 const Home = (props) => {
+  const { images } = props;
   return (
     <div>
       <div className="home-page">
@@ -15,7 +16,7 @@ const Home = (props) => {
               <SideMenu appName={"Movie DB"} />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel images={images} />
               <div className="row">
                 <MovieList movies={props.movies || []} />
               </div>
@@ -26,11 +27,17 @@ const Home = (props) => {
     </div>
   );
 };
+
 Home.getInitialProps = async () => {
   const movies = await getMovies();
+  const images = movies.map((movie) => ({
+    id: `image-${movie.id}`,
+    image: movie.image,
+  }));
 
   return {
     movies,
+    images,
   };
 };
 

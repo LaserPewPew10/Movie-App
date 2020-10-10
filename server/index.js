@@ -1,4 +1,3 @@
-// DEPENDECIES
 const next = require("next");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -79,19 +78,30 @@ app.prepare().then(() => {
     });
   });
 
-  //   server.get("/faq", (req, res) => {
-  //     res.send("<html><head></head><body><h1> Hello World! </h1></body></html>");
-  //   });
+  // server.get('/faq', (req, res) => {
+  //   res.send(`
+  //     <html>
+  //       <head></head>
+  //       <body><h1>Hello World!</h1>
+  //       </body>
+  //     </html>
+  //   `)
+  // })
 
-  // we are handling all of the request coming to our server
-  server.get("*", (req, res) => {
-    // next.js is handling request and providing pages where we are navigating to
-    return handle(req, res);
-  });
+  // // we are handling all of the request comming to our server
+  // server.get("*", (req, res) => {
+  //   // next.js is handling requests and providing pages where we are navigating to
+  //   return handle(req, res);
+  // });
+
+  // server.post('*', (req, res) => {
+  //   // next.js is handling requests and providing pages where we are navigating to
+  //   return handle(req, res)
+  // })
 
   const PORT = process.env.PORT || 3000;
 
-  server.listen(PORT, (err) => {
+  server.use(handle).listen(PORT, (err) => {
     if (err) throw err;
     console.log("> Ready on port " + PORT);
   });

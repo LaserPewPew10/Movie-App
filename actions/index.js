@@ -21,6 +21,7 @@ export const getCategories = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(CATEGORY_DATA);
+      // reject('Cannot fetch data!')
     }, 50);
   });
 };
@@ -48,4 +49,8 @@ export const deleteMovie = (id) => {
   return axios
     .delete(`${BASE_URL}/api/v1/movies/${id}`)
     .then((res) => res.data);
+};
+
+export const getPosts = () => {
+  return axios.get(`${BASE_URL}/api/v1/posts`).then((res) => res.data);
 };

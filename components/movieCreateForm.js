@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const MovieCreateForm = (props) => {
-  const [form, setForm] = useState({
+const MovieCreatehtmlForm = (props) => {
+  const [htmlForm, sethtmlForm] = useState({
     name: "",
     description: "",
     rating: "",
@@ -14,8 +14,8 @@ const MovieCreateForm = (props) => {
     const target = event.target;
     const name = target.name;
 
-    setForm({
-      ...form,
+    sethtmlForm({
+      ...htmlForm,
       [name]: target.value,
     });
   };
@@ -29,101 +29,101 @@ const MovieCreateForm = (props) => {
         value.push(options[i].value);
       }
     }
-    setForm({
-      ...form,
+    sethtmlForm({
+      ...htmlForm,
       genre: value.toString(),
     });
   };
 
-  const submitForm = () => {
-    props.handleFormSubmit({ ...form });
+  const submithtmlForm = () => {
+    props.handleFormSubmit({ ...htmlForm });
   };
 
   return (
     <form>
-      <div className="form-group">
-        <label for="name">Name</label>
+      <div className="htmlForm-group">
+        <label htmlFor="name">Name</label>
         <input
           onChange={handleChange}
-          value={form.name}
+          value={htmlForm.name}
           name="name"
           type="text"
-          className="form-control"
+          className="htmlForm-control"
           id="name"
           aria-describedby="emailHelp"
           placeholder="Lord of the Rings"
         />
       </div>
-      <div className="form-group">
-        <label for="description">Description</label>
+      <div className="htmlForm-group">
+        <label htmlFor="description">Description</label>
         <input
           onChange={handleChange}
-          value={form.description}
+          value={htmlForm.description}
           name="description"
           type="text"
-          className="form-control"
+          className="htmlForm-control"
           id="description"
           placeholder="Somewhere in Middle-earth..."
         />
       </div>
-      <div className="form-group">
-        <label for="description">Rating</label>
+      <div className="htmlForm-group">
+        <label htmlFor="description">Rating</label>
         <input
           onChange={handleChange}
-          value={form.rating}
+          value={htmlForm.rating}
           name="rating"
           type="number"
           max="5"
           min="0"
-          className="form-control"
+          className="htmlForm-control"
           id="rating"
           placeholder="3"
         />
-        <small id="emailHelp" className="form-text text-muted">
+        <small id="emailHelp" className="htmlForm-text text-muted">
           Max: 5, Min: 0{" "}
         </small>
       </div>
-      <div className="form-group">
-        <label for="image">Image</label>
+      <div className="htmlForm-group">
+        <label htmlFor="image">Image</label>
         <input
           onChange={handleChange}
-          value={form.image}
+          value={htmlForm.image}
           name="image"
           type="text"
-          className="form-control"
+          className="htmlForm-control"
           id="image"
           placeholder="http://....."
         />
       </div>
-      <div className="form-group">
-        <label for="cover">Cover</label>
+      <div className="htmlForm-group">
+        <label htmlFor="cover">Cover</label>
         <input
           onChange={handleChange}
-          value={form.cover}
+          value={htmlForm.cover}
           name="cover"
           type="text"
-          className="form-control"
+          className="htmlForm-control"
           id="cover"
           placeholder="http://......"
         />
       </div>
-      <div className="form-group">
-        <label for="longDesc">Long Description</label>
+      <div className="htmlForm-group">
+        <label htmlFor="longDesc">Long Description</label>
         <textarea
           onChange={handleChange}
           name="longDesc"
-          value={form.longDesc}
-          className="form-control"
+          value={htmlForm.longDesc}
+          className="htmlForm-control"
           id="longDesc"
           rows="3"
         ></textarea>
       </div>
-      <div className="form-group">
-        <label for="genre">Genre</label>
+      <div className="htmlForm-group">
+        <label htmlFor="genre">Genre</label>
         <select
           onChange={handleGenreChange}
           multiple
-          className="form-control"
+          className="htmlForm-control"
           id="genre"
         >
           <option>drama</option>
@@ -133,11 +133,15 @@ const MovieCreateForm = (props) => {
           <option>action</option>
         </select>
       </div>
-      <button onClick={submitForm} type="button" className="btn btn-primary">
+      <button
+        onClick={submithtmlForm}
+        type="button"
+        className="btn btn-primary"
+      >
         Create
       </button>
     </form>
   );
 };
 
-export default MovieCreateForm;
+export default MovieCreatehtmlForm;
